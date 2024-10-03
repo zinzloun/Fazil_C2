@@ -1,0 +1,5 @@
+netifaces
+flask
+pyreadline3
+pycryptodomex
+pyfiglet
