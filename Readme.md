@@ -54,11 +54,30 @@ Install the required libraries:
 pip3 install -r requirements.txt
 ```
 
-Then start the server:
+Start the server:
 
 ```
 python3 c2.py
 ```
+Then help command is your friend, if you know how a C2 framework works, it is self explanatory.
+
+    (c2)::> help
+    
+    [*] Avaliable commands: 
+    
+    
+     Command                         Description                         Arguments
+    ---------                       -------------                       -----------
+     help                            Show help.                          
+     home                            Return home.                        
+     clear                           Clear the screen.                   
+     exit                            Exit.                               
+     listeners                       Manage listeners.                   
+     agents                          Manage active agents.               
+     payloads                        Generate payloads.                  
+
+
+
 ## TODO
 1. Refactoring & clean the server code
 2. ~~Make the server endpoints randomly generated~~
