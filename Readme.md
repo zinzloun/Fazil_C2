@@ -27,7 +27,7 @@ expose the server on Internet.
 - Update required libraries according to Python version 3.12
 - Removed the encryption logic based on AES key
 - The server now run HTTPS
-- Only one x64 exe (console app) payload is available
+- Only one x64 exe (console app .Net 4.8) payload is available
 - Commands send to the agent are displayed on the app console
 
 
@@ -39,7 +39,7 @@ expose the server on Internet.
 
 ## Requirements
 
-- You must have installed mono-complete package
+- You must have installed <b>mono-complete package</b>
 - You must have a SSL/TLS certificate. You have to set the certificate and the related key in the following file: <b>Simple_C2/core/listener.py</b>, around line 88
 
 ```
