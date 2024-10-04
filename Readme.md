@@ -10,7 +10,7 @@
 ```
 
 ## Notes about this repo
-~~This project exists as a forked repo from the original project, developed by [0xRick](https://0xrick.github.io/misc/c2/),~~ to whom goes all my devotion for being able to explain, in simple and understandable code, how a C2 framework works. 
+~~This project exists as a forked repo from the original project~~, developed by [0xRick](https://0xrick.github.io/misc/c2/), to whom goes all my devotion for being able to explain, in simple and understandable code, how a C2 framework works. 
 ~~At the moment there is a pending pull request to merge the changes.~~ 
 
 Since the pull request was not merged, I assume that the repo is not mantained anymore, so here I am!
