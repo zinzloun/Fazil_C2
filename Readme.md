@@ -27,14 +27,14 @@ expose the server on Internet.
 - Update required libraries according to Python version 3.12
 - Removed the encryption logic based on AES key
 - The server now run HTTPS
-- Only one x64 exe (console app .Net 4.8) payload is available
+- Only one x64 exe payload is available
 - Commands send to the agent are displayed on the app console
 
 
 ## Architecture
 
-1. The server is a Flask Python (3.12) app running on Linux x64, in my case, on Kali 2024.3
-2. The implant is a C# app (.Net 4.8) compiled with mono-mcs on Linux x64, in my case, on Kali 2024.3
+1. The server is a Flask Python (3.12) application, running on Linux x64 (Debian 12 in my case).
+2. The implant is C# console application (.Net 4.8), compiled with mono-mcs on Linux x64 (Debian 12 in my case).
 
 
 ## Requirements
