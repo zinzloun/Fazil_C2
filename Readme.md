@@ -82,8 +82,7 @@ Then help command is your friend, if you know how a C2 framework works, it is se
 1. Refactoring & clean the server code
 2. ~~Make the server endpoints randomly generated~~
 3. ~~Implements client messages on the console~~
-4. Support Go agent windows
-5. Support Go agent linux
+4. Support linux agent
 
     
 
