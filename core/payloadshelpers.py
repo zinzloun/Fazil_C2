@@ -6,7 +6,7 @@ from listenershelpers import listeners, isValidListener, checkListenersEmpty
 import subprocess
 
 Payloads = {
-    "exe[x64]" : "Coded in C#, compiled with Mono"
+    "exe[x32/x64]" : "Coded in C#, compiled with Mono"
 }
 
 vPayloads = [payload for payload in Payloads]
