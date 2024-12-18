@@ -56,8 +56,8 @@ class Menu:
         success("Avaliable commands: ")
         
         print(YELLOW)
-        print(" Command                         Description                         Arguments")
-        print("---------                       -------------                       -----------")
+        print("Command                         Description                         Arguments")
+        print("---------                       ------------------------            ---------------------------------------")
 
         for i in self.commands:
             print(" {}".format(i) + " " * (32 - len(i)) + "{}".format(self.commands[i][0]) + " " * (36 - len(self.commands[i][0])) + "{}".format(self.commands[i][1]))
@@ -258,7 +258,7 @@ Lmenu.registerCommand("stop", "Stop an active listener.","<name>")
 Lmenu.registerCommand("remove", "Remove a listener.", "<name>")
 
 Pmenu.registerCommand("list", "List available payload types.", "")
-Pmenu.registerCommand("generate", "Generate a payload", "<listener>")
+Pmenu.registerCommand("generate", "Generate a payload", "<listener> <id>")
 
 Hmenu.registerCommand("listeners", "Manage listeners.", "")
 Hmenu.registerCommand("agents", "Manage active agents.", "")
