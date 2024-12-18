@@ -34,7 +34,9 @@ expose the server on Internet.
 ## Architecture
 
 1. The server is a Flask Python (3.12) application, running on Linux x64 (Debian 12 in my case).
-2. The implant is C# console application (.Net 4.8), compiled with mono-mcs on Linux x64 (Debian 12 in my case).
+2. Implants:
+   - C# console application (.Net 4.8), compiled with mono-mcs on Linux x64 (Debian 12 in my case)
+   - Rust zip project source code that you can compile on a windows machine (compiled unsing cargo cross on Linux, resulted in a flagged exe by Defender)
 
 
 ## Requirements
@@ -83,6 +85,9 @@ Then help command is your friend, if you know how a C2 framework works, it is se
 2. ~~Make the server endpoints randomly generated~~
 3. ~~Implements client messages on the console~~
 4. Support linux agent
+
+## Known issues
+- If you rename the Rust agent you will not be able to read the returned command's output, that in practice results that you won't be able to interact with the victim anymore
 
     
 
