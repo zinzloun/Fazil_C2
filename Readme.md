@@ -37,7 +37,9 @@ expose the server on Internet.
 1. The server is a Flask Python (3.12) application, running on Linux x64 (Debian 12 in my case).
 2. Implants:
    - C# console application (.Net 4.8), compiled with mono-mcs on Linux x64 (Debian 12 in my case)
-   - Rust zip project source code that you can compile on a windows machine (compiled unsing cargo cross on Linux, resulted in a flagged exe by Defender)
+   - Rust zip project source code, that you can compile on a windows machine*
+
+*compiled unsing cargo cross on Linux, resulted in a flagged exe by Defender
 
 
 ## Requirements
