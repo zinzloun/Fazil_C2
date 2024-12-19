@@ -4,6 +4,7 @@ from common import *
 from collections import OrderedDict
 from shutil import rmtree
 from base64 import b64decode
+from tabulate import tabulate
 
 agents = OrderedDict()
 
@@ -46,15 +47,20 @@ def viewAgents():
 
         success("Active Agents:")
         
-        print(YELLOW)
-        print(" Name                         Listener                         External IP                         Hostname")
-        print("------                       ----------                       -------------                       ----------")
         
-        for i in agents:
-            print(" {}".format(agents[i].name) + " " * (29 - len(agents[i].name)) + "{}".format(agents[i].listener) + " " * (33 - len(agents[i].listener)) + agents[i].remoteip + " " * (36 - len(agents[i].remoteip)) + agents[i].hostname)
+        print(YELLOW)
+        
+        header = ["Name", "Listener", "Remote IP", "Hostname"]
+	# Prepara i dati per la tabella
+	
+        rows = [(agents[i].name, agents[i].listener, agents[i].remoteip, agents[i].hostname) for i in agents]
+       
+        print(tabulate(rows, headers=header, tablefmt="grid"))
+
         
         print(cRESET)
-
+        
+        
 def renameAgent(args):
 
     if len(args) != 2:

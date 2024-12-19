@@ -4,6 +4,7 @@ from listener import Listener
 
 from collections import OrderedDict
 from shutil import rmtree
+from tabulate import tabulate
 
 import os
 import netifaces
@@ -48,24 +49,20 @@ def viewListeners():
     if checkListenersEmpty(1) == False:
 
         success("Active HTTPS listeners:")
-
+        
         print(YELLOW)
-        print(
-            " Name                         IP:Port                                  Status")
-        print(
-            "------                       ------------------                       --------")
+        
+        header = ["Name", "IP", "Port", "Running"]
+	# Prepara i dati per la tabella
+	
+        rows = [(listeners[i].name, listeners[i].ipaddress, listeners[i].port, listeners[i].isRunning) for i in listeners]
+       
+        print(tabulate(rows, headers=header, tablefmt="grid"))
 
-        for i in listeners:
-
-            if listeners[i].isRunning == True:
-                status = "Running"
-            else:
-                status = "Stopped"
-
-            print(" {}".format(listeners[i].name) + " " * (29 - len(listeners[i].name)) + "{}:{}".format(listeners[i].ipaddress, str(
-                listeners[i].port)) + " " * (41 - (len(str(listeners[i].port)) + len(":{}".format(listeners[i].ipaddress)))) + status)
-
+        
         print(cRESET)
+
+        
 
 
 def ulisteners():

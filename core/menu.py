@@ -5,6 +5,7 @@ from collections import OrderedDict
 from os import system
 
 from common import *
+from tabulate import tabulate
 
 from listenershelpers import *
 from agentshelpers import *
@@ -54,14 +55,18 @@ class Menu:
     def showHelp(self):
 
         success("Avaliable commands: ")
-        
-        print(YELLOW)
-        print("Command                         Description                         Arguments")
-        print("---------                       ------------------------            ---------------------------------------")
+        header = ["Command", "Description", "Args"]
 
-        for i in self.commands:
-            print(" {}".format(i) + " " * (32 - len(i)) + "{}".format(self.commands[i][0]) + " " * (36 - len(self.commands[i][0])) + "{}".format(self.commands[i][1]))
-        
+        print(YELLOW)
+	
+	# Prepara i dati per la tabella
+        rows = [(cmd, details[0], details[1]) for cmd, details in self.commands.items()]
+	
+        #for i in self.commands:
+        #print(self.commands)
+            #print(" {}".format(i) + " " * (32 - len(i)) + "{}".format(self.commands[i][0]) + " " * (36 - len(self.commands[i][0])) + "{}".format(self.commands[i][1]))
+        print(tabulate(rows, headers=header, tablefmt="grid"))
+
         print(cRESET)
     
     def clearScreen(self):

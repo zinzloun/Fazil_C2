@@ -2,6 +2,7 @@ from shutil import copyfile
 
 from common import *
 from listenershelpers import listeners, isValidListener, checkListenersEmpty
+from tabulate import tabulate
 
 import subprocess
 import random
@@ -9,8 +10,9 @@ import string
 
 
 Payloads = {
-    "1" : "Coded in C#, compiled with Mono [mcs] -> exe",
-    "2" : "Rust source code that you can compile with cargo on a win box -> rust_impl.zip"
+    "1": ["Coded in C#, compiled with Mono", "executable"],
+    "2": ["Rust source code that you can compile with cargo on a win box", "zip file"],
+    "3": ["Rust binary compiled for Linux system", "executable"]
 }
 
 vPayloads = [payload for payload in Payloads]
@@ -41,13 +43,15 @@ def isValidArch(arch, s):
 def viewPayloads():
 
     success("Available payloads [x64 only]: ")
-
-    print(YELLOW)
-    print(" ID      		      Description")
-    print("----     		      --------------------------------------------------------------------------")
     
-    for i in Payloads:
-        print(" {}".format(i) + " " * (29 - len(i)) + "{}".format(Payloads[i]))
+    print(YELLOW)
+        
+    header = ["ID", "Description", "Artifact"]
+    
+    rows = [(id_, details[0], details[1]) for id_, details in Payloads.items()]
+	
+       
+    print(tabulate(rows, headers=header, tablefmt="grid"))
     
     print(cRESET)
 
@@ -69,7 +73,7 @@ def build_pay(listener, idP):
         out = subprocess.call(["mcs", outpath, "-r:System.Net.Http", "-sdk:4.8"])
         if out == 0:
             subprocess.call(["rm", outpath])
-            success("File generated in: {}".format(outpath.replace('.cs','.exe')))
+            success("File generated in {}".format(outpath.replace('.cs','.exe')))
 
     elif idP == "2":
         temp_file = "./lib/templates/Implant.rs"
@@ -81,6 +85,19 @@ def build_pay(listener, idP):
         if out == 0:
             success("Zip file generated: ./lib/templates/rust_impl.zip")
             success("To generate the exe payload unzip the file, then enter the folder rust_impl and execute: cargo b --release");
+            
+    elif idP == "3":
+        temp_file = "./lib/templates/Implant.rs"
+        outpath   = "./lib/templates/rust_impl/src/main.rs"
+        prep_comp(temp_file, outpath, ip, port, uReg, uResults, uTasks)
+        command = "cd ./lib/templates/rust_impl && cargo b --release"
+        out = subprocess.call(command, shell=True)
+
+        if out == 0:
+            command = "mv ./lib/templates/rust_impl/target/release/imp_fazilc2_rust . && rm -r ./lib/templates/rust_impl/target"
+            out = subprocess.call(command, shell=True)
+            if out == 0:
+                success("File generated with success: imp_fazilc2_rust");
 
         
 def prep_comp(temp_file, outpath, ip, port, uReg, uResults, uTasks):
