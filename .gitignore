@@ -1,0 +1,3 @@
+# Escludi tutta la cartella core/__pycache__/
+core/__pycache__/
+data/
