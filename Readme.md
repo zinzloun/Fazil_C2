@@ -86,7 +86,7 @@ Then if you know how a c2 works, use help command to get started:
 5. Record a demo video
 
 ## Known issues
-- If you rename the Rust agent you will not be able to read the returned command's output, that in practice results that you won't be able to interact with the victim anymore
+- If you rename the Rust agent you will not be able to read the returned command's output, that implies you won't be able to interact with the victim anymore
 
     
 
