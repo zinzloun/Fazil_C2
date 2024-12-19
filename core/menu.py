@@ -223,7 +223,7 @@ def home():
     print(YELLOW)
     print(pyfiglet.figlet_format('Fazil C2',font='utopia'))
     print(cRESET)
-    print("Based on 0xRick's Basic C2 project. Fazil version by me.")
+    print("Fazil v2.0")
     
     from shutil import which
     if which("mcs") is  None:
