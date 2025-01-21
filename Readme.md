@@ -3,7 +3,7 @@
 
 ## Notes
 Based on the [0xRick](https://0xrick.github.io/misc/c2/)'s job, to whom goes all my devotion for being able to explain, in simple and understandable code, how a C2 framework works. 
-<b>Essentially, the C2 allows you to execute remote commands (cmd and powershell) on the agents and eventually get the output.</b>
+<b>Essentially, the C2 allows you to execute remote commands on the agents and eventually get the output.</b>
 
 ### Disclaimer
 The only pourpose of this project is to learn how a C2 framework works. 0xRick applied the KIS principle, and I continued using this methodology. For me, it has been the occasion to learn how Flask works too, since I didn't know this micro-framework at all.
