@@ -13,7 +13,7 @@ expose the server on Internet.
 
 ## Changes respect the original project
 - Update required libraries according to Python version 3.12
-- Removed the encryption logic based on AES key
+- Removed AES encryption
 - The server now run HTTPS
 - Only one x64 exe payload is available
 - Commands send to the agent are displayed on the app console
