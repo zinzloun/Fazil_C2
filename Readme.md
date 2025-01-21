@@ -6,7 +6,7 @@ Based on the [0xRick](https://0xrick.github.io/misc/c2/)'s job, to whom goes all
 <b>Essentially, the C2 allows you to execute remote commands on the agents and eventually get the output.</b>
 
 ### Disclaimer
-The only pourpose of this project is to learn how a C2 framework works. 0xRick applied the KIS principle, and I continued using this methodology. For me, it has been the occasion to learn how Flask works too, since I didn't know this micro-framework at all.
+The only pourpose of this project is to learn how a C2 framework works. 0xRick applied the KISS principle, and I continued using this approach. Eventually, for me, it has been the occasion to learn how Flask works.
 
 It shouldn't be necessary to say that: <i>"This software was created for educational purposes only and that I'm not responsible for any misuse in any way"</i>. Note that the server use self-signed certificates, that as you know, it suitable only in a test enviroment, morover the agents complitely skip the certificate validation, that again, is a very bad implementation. Having said that, don't
 expose the server on Internet.
