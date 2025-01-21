@@ -15,9 +15,9 @@ expose the server on Internet.
 - Update required libraries according to Python version 3.12
 - Removed AES encryption
 - The server now run HTTPS
-- Only one x64 exe payload is available
+- Only x64 exe payloads are supported
 - Commands send to the agent are displayed on the app console
-- Support Linux agents (v 2.0)
+- Supports Linux agents (v 2.0)
 
 
 ## Architecture
@@ -49,7 +49,7 @@ Start the server:
 
     ./c2.py
 
-Then if you know how a c2 works, use help command to get started:
+Then if you know how a C2 tool works you are good to go. Use help command to get started:
 
 ```
 (c2)::> help
@@ -86,7 +86,7 @@ Then if you know how a c2 works, use help command to get started:
 5. Record a demo video
 
 ## Known issues
-- If you rename the Rust agent you will not be able to read the returned command's output, that implies you won't be able to interact with the victim anymore
+- If you rename the Rust agent you will not get the returned command's output back, that implies you won't be able to interact with the victim anymore
 
     
 
