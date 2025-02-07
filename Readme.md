@@ -2,7 +2,8 @@
 ### YAC2: yet another C&C framework, created only for fun & learning
 
 ## Notes
-Based on the [0xRick](https://0xrick.github.io/misc/c2/)'s job, to whom goes all my devotion for being able to explain, in simple and understandable code, how a C2 framework works. 
+Based on the [0xRick](https://0xrick.github.io/misc/c2/)'s job.
+
 <b>Essentially, the C2 allows you to execute remote commands on the agents and eventually get the output.</b>
 
 ### Disclaimer
