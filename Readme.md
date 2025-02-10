@@ -40,6 +40,10 @@ self.app.run(port=self.port, host=self.ipaddress, ssl_context=('/path/to/your/ce
 
 ## How to use
 
+Create a virtual enviroment and activate it:
+
+      python3 -m venv fazilc2 && source fazilc2/bin/activate
+
 Install the required libraries:
 
 ```
