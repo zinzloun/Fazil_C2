@@ -83,14 +83,6 @@ Then if you know how a C2 tool works you are good to go. Use help command to get
 
 ```
 
-
-## TODO
-1. Refactoring & clean the server code
-2. ~~Make the server endpoints randomly generated~~
-3. ~~Implements client messages on the console~~
-4. ~~Support Linux agent~~
-5. Record a demo video
-
 ## Known issues
 - If you rename the Rust agent you will not get the returned command's output back, that implies you won't be able to interact with the victim anymore
 
