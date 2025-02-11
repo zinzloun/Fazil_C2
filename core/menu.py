@@ -223,7 +223,7 @@ def home():
     print(YELLOW)
     print(pyfiglet.figlet_format('Fazil C2',font='slant'))
     print(cRESET)
-    print("Fazil v2.0")
+    print("Fazil v2.1")
     
     from shutil import which
     if which("mcs") is  None:
