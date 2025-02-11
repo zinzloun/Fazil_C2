@@ -221,7 +221,7 @@ def home():
 
     # Hmenu.clearScreen()
     print(YELLOW)
-    print(pyfiglet.figlet_format('Fazil C2',font='utopia'))
+    print(pyfiglet.figlet_format('Fazil C2',font='slant'))
     print(cRESET)
     print("Fazil v2.0")
     
