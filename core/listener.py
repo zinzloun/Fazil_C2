@@ -82,7 +82,7 @@ class Listener:
     def run(self):
         self.app.logger.disabled = True
         # run on https
-        self.app.run(port=self.port, host=self.ipaddress, ssl_context=('/home/zinz/ssf_cert/cert.crt', '/home/zinz/ssf_cert/cert.key'))
+        self.app.run(port=self.port, host=self.ipaddress, ssl_context=('/home/kali/certs/certificate.crt', '/home/kali/certs/private.key'))
 
     def setFlag(self):
         self.flag = 1
