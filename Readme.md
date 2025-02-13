@@ -19,6 +19,7 @@ expose the server on Internet.
 - Only x64 exe payloads are supported
 - Commands send to the agent are displayed on the app console
 - Supports Linux agents (v 2.0)
+- Added registry persistence (v 2.1) for windows agent
 
 
 ## Architecture
