@@ -4,7 +4,7 @@
 ## Notes
 Based on the [0xRick](https://0xrick.github.io/misc/c2/)'s job.
 
-<b>Essentially, the C2 allows you to execute remote commands on the agents and eventually get the output.</b>
+<b>Essentially, the C2 allows you to execute remote commands on agents and eventually get the output.</b>
 
 ### Disclaimer
 The only pourpose of this project is to learn how a C2 framework works. 0xRick applied the KISS principle, and I continued using this approach. Eventually, for me, it has been the occasion to learn how Flask works.
