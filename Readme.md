@@ -54,7 +54,7 @@ pip3 install -r requirements.txt
 
 Start the server:
 
-    ./c2.py
+    sudo ./c2.py
 
 Then if you know how a C2 tool works you are good to go. Use help command to get started:
 
