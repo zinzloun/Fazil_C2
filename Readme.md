@@ -32,10 +32,10 @@ expose the server on Internet.
 
 ## Requirements
 
+- Install figlet
 - You must have installed <b>mono-complete package</b>
 - You must have installed <b>rustc and cargo</b> to compile the Linux agent 
 - You must have a SSL/TLS certificate. You have to set <b>ssl_context</b> to point to the certificate and the related key path, in the following file: <b>Simple_C2/core/listener.py</b>, around line 88
-- Install figlet
 ```
 self.app.run(port=self.port, host=self.ipaddress, ssl_context=('/path/to/your/cert.crt', '/path/to/your/cert.key'))
 ```
